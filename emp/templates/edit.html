@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center">EDIT PAGE</h2>
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="mb-3">
+  <label  class="form-label">ID</label>
+  <input type="text" class="form-control"  name="i"  value="{{emp.id}}" placeholder="Enter ID">
+</div>
+
+<div class="mb-3">
+  <label  class="form-label">NAME</label>
+  <input type="text" class="form-control" name="n"   value="{{emp.name}}"  placeholder="Enter Name">
+</div>
+
+<div class="mb-3">
+  <label  class="form-label">Age</label>
+  <input type="number" class="form-control"  name="a"  value="{{emp.age}}"   placeholder="Enter Age">
+</div>
+
+<div class="mb-3">
+  <label  class="form-label">Place</label>
+  <input type="text" class="form-control" name="p"  value="{{emp.place}}"  placeholder="Enter Place">
+</div>
+
+
+<div class="mb-3">
+  <label  class="form-label">Email</label>
+  <input type="email" class="form-control" name="e" value="{{emp.email}}"  placeholder="name@example.com">
+</div>
+  <div class="mb-3">
+  <label  class="form-label">Profile</label>
+    <img src="{{emp.profile.url}}"  height="100px"  width="100px">
+  <input type="file" class="form-control" name="z">
+</div>
+  <div class="mb-3">
+  <label  class="form-label">PDF</label>
+    <a href="{{emp.pdf.url}}" >PDF</a>
+  <input type="file" class="form-control" name="f">
+</div>
+
+<div class="mb-3">
+  <input type="submit" value="ADD">
+</div>
+</form>
+
+{% endblock %}
